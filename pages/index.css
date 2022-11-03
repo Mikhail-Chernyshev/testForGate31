@@ -1,0 +1,58 @@
+@import url(../vendor/normalize.css);
+* {
+  margin: 0;
+  padding: 0;
+}
+.page {
+  margin: 0 auto;
+  width: 90%;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  margin: 0 auto;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+ul {
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.element {
+  border: 1px solid green;
+  width: 300px;
+  margin-top: 15px;
+}
+h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+h1 {
+  margin: 0 auto;
+}
+.onClick {
+  color: white;
+  background-color: black;
+}
+.button {
+  width: 25px;
+  height: 25px;
+  background: red;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  align-self: center;
+}
+.input {
+}
+form {
+    display: flex;
+}
