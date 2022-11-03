@@ -4,15 +4,12 @@ const url = 'https://jsonplaceholder.typicode.com/posts/?_start=0&_limit=7';
 const arrayTitles = [];
 let input = document.getElementById('input-search');
 const buttonSearch = document.querySelector('.button');
-
+function onChange(evt) {}
 buttonSearch.addEventListener('click', () => {
-  window.history.pushState('', '', input.value);
+  window.history.pushState('', '', '123');
   searchApi(url);
+  input.value = '';
 });
-window.addEventListener('load', () => {
-window.history.pushState('', '', '');
-})
-
 function submitForm(event) {
   window.history.pushState('', '', input.value);
   event.preventDefault();
@@ -50,7 +47,6 @@ function createDivElement(element) {
   append(div, checkbox);
 }
 function getElements(url) {
-  // window.history.pushState('', '', input.value);
   return fetch(url)
     .then((resp) => resp.json())
     .then((data) => {
