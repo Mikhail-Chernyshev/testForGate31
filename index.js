@@ -20,13 +20,15 @@ function append(parent, el) {
   return parent.appendChild(el);
 }
 
-const emptyParams = new URLSearchParams();
-const paramsFromUrl = new URLSearchParams(window.location.search);
+// const emptyParams = new URLSearchParams();
+// const paramsFromUrl = new URLSearchParams(window.location.search);
 console.log(window.location.search);
 // const params = new URLSearchParams({ inputvalue });
 function createSearch(value) {
-  const params = new URLSearchParams();
-  params.append(value, value);
+  const params = new URLSearchParams('a[]');
+  params.set('a[]', value);
+
+  //   params.append(value, value);
 }
 function searchApi(url) {
   arrayTitles.forEach((el) => {
