@@ -6,9 +6,15 @@ let input = document.getElementById('input-search');
 const buttonSearch = document.querySelector('.button');
 
 buttonSearch.addEventListener('click', () => {
+  window.history.pushState('', '', input.value);
   searchApi(url);
 });
+window.addEventListener('load', () => {
+window.history.pushState('', '', '');
+})
+
 function submitForm(event) {
+  window.history.pushState('', '', input.value);
   event.preventDefault();
   searchApi(url);
 }
@@ -44,6 +50,7 @@ function createDivElement(element) {
   append(div, checkbox);
 }
 function getElements(url) {
+  // window.history.pushState('', '', input.value);
   return fetch(url)
     .then((resp) => resp.json())
     .then((data) => {
