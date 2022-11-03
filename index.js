@@ -1,17 +1,18 @@
 const ul = document.getElementById('authors');
 const url = 'https://jsonplaceholder.typicode.com/posts/?_start=0&_limit=7';
 const arrayTitles = [];
-console.log(arrayTitles);
 let input = document.getElementById('input-search');
 
 const buttonSearch = document.querySelector('.button');
 
 buttonSearch.addEventListener('click', () => {
-  console.log('pipka');
-  //   search(arrayTitles);
   searchApi(url);
 });
-arrayTitles.filter;
+
+function submitForm(event) {
+  event.preventDefault();
+  searchApi(url);
+}
 function createNode(element) {
   return document.createElement(element);
 }
@@ -19,16 +20,7 @@ function createNode(element) {
 function append(parent, el) {
   return parent.appendChild(el);
 }
-
-const emptyParams = new URLSearchParams();
-const paramsFromUrl = new URLSearchParams(window.location.search);
-console.log(window.location.search);
-function createSearch(value) {
-  const params = new URLSearchParams('a[]');
-  params.set('a[]', value);
-}
 function searchApi(url) {
-  window.location = 'pipka';
   arrayTitles.forEach((el) => {
     el.parentNode.style.display = 'none';
   });
@@ -37,7 +29,6 @@ function searchApi(url) {
     .then((data) => {
       data.map((element) => {
         if (element.title.includes(input.value)) {
-          console.log(element);
           let div = createNode('div');
           div.classList.add('element');
           let title = createNode('h3');
@@ -56,9 +47,10 @@ function searchApi(url) {
           append(div, title);
           append(div, text);
           append(div, checkbox);
+        } else if (arrayTitles.length === 0) {
+          console.log('pipka2');
         }
       });
-      createSearch(input.value);
     })
     .catch(function (error) {
       console.log(error);
